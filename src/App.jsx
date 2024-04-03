@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {Card} from './Card.jsx'
 
-function App() {
-  const [count, setCount] = useState(0)
+export function App()
+{
+	let raw = [
+		{title: "tit", content: "con"},
+		{title: "tit", content: "con"},
+		{title: "titoma", content: "contetoma"},
+		{title: "tit", content: "con"},
+		{title: "titos", content: "contetos"},
+		{title: "titoma", content: "contetoma"},
+		{title: "titos", content: "contetos"},
+		{title: "titos", content: "contetos"},
+		{title: "titoma", content: "contetoma"},
+		{title: "titobicosidodecahedron", content: "contetobicosidodecahedron"}
+	]
+	let cards = [];
+	for (let i = 0; i < raw.length; ++i)
+	{
+		cards.push(<Card Key={i} title={raw[i].title} content={raw[i].content}></Card>)
+	}
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+		<div style={{display: "flex", flexWrap: "wrap", justifyContent: "left"}}>
+			{cards}
+		</div>
+	)
 }
-
-export default App
